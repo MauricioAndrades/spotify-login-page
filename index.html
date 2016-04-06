@@ -1,48 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Spotify Playlist Maker</title>
+    <meta charset="UTF-8">
+    <meta content="SpotifyPlayListMaker" name="Mauricio Andrades">
+    <meta content="Convert text input -&gt; to spotify playlist" name="description">
+    <meta content="spotify, convert, maker, playlist" name="keywords">
 
-  <meta charset="UTF-8">
-  <title>Spotify Playlist Maker</title>
-  <meta content="SpotifyPlayListMaker" name="Mauricio Andrades">
-  <meta content="Convert text input -> to spotify playlist" name="description">
-  <meta content="spotify, convert, maker, playlist" name="keywords">
-  <!-- google fonts -->
-  <link href='//fonts.googleapis.com/css?family=font1|font2|etc' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-  <!-- main.css link -->
-  <link href="css/main.css" rel="stylesheet" type="text/css">
+    <!-- google fonts -->
+    <link href='//fonts.googleapis.com/css?family=Montserrat|Bree Serif|Roboto Mono' rel='stylesheet' type='text/css'>
 
-  <!-- main.js link -->
-  <script type="text/javascript" src="js/main.js"></script>
+    <!-- main.css link -->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 
-  <!-- google analytics script -->
-  <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-XXXXXXXX-Y']);
-    _gaq.push(['_trackPageview']);
-    (function()
-    {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+    <!-- main.js link -->
+    <script src="js/main.js" type="text/javascript"></script>
 
+    <!-- bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--  LESS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+    <!-- JQUERY -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 </head>
 
-  <body>
+    <body>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+        <!-- https://github.com/MauricioAndrades/gSchoolSpotifyProject/tree/master -->
+        <!-- autorun javascript -->
+        <script type="text/javascript">
+            function autorun() {}
+              if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+              else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+              else window.onload = autorun;
+        </script>
 
-      <!-- autorun javascript -->
-      <script type="text/javascript">
-        function autorun() {}
-          if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
-          else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
-          else window.onload = autorun;
-      </script>
+        <div class="jumbotron" id="title">
+            <!-- page title -->
+            <h1>Displaying User Data</h1>
 
-  </body>
 
+            <p>Log in with your Spotify account and this demo will display information about you fetched using the Spotify Web API</p>
+
+            <!-- button -->
+            <button class="btn btn-primary" id="btn-login">Login</button>
+
+            <div id="result"></div>
+        </div>
+
+        <script id="result-template" type="text/x-handlebars-template">
+            <dl>
+                <img src="{{images.0.url}}" alt="results-template">
+                <dt>User Name</dt>
+                <dd>{{id}}</dd>
+                <dt>Display Name</dt>
+                <dd>{{display_name}}</dd>
+                <dt>Country</dt>
+                <dd>{{country}}</dd>
+                <dt>Followers</dt>
+                <dd>{{followers.total}}</dd>
+                <dt>Profile</dt>
+                <dd>
+                    <a href="{{external_urls.spotify}}" target="_blank">{{external_urls.spotify}}</a>
+                </dd>
+                <dt>Email</dt>
+                <dd>{{email}}</dd>
+                <dt>Product</dt>
+                <dd>{{product}}</dd>
+            </dl>
+        </script>
+
+    </body>
 </html>
